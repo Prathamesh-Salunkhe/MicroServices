@@ -9,7 +9,7 @@ public class AppFeignErrorDecoder implements ErrorDecoder{
 	@Override
 	public Exception decode(String methodKey, Response response) {
 		if(response.status() >=400 && response.status() <= 499) {
-			throw new ProductNotFoundException("Product Not Found");
+			throw new EmployeeNotFoundException("Employee Not Found");
 		}
 		return defaultErrorDecoder.decode(methodKey, response);
 	}

@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class AppController {
 	
 	@Autowired
-	private ProductServiceClient productServiceClient;
+	private EmployeeServiceClient employeeServiceClient;
 	
-	@GetMapping("/fetchproducts")
-	public ResponseEntity<?> getProducts(){
-		return ResponseEntity.ok(productServiceClient.getAllProducts());
+	@GetMapping("/fetchemployees")
+	public ResponseEntity<?> getEmployees(){
+		return ResponseEntity.ok(employeeServiceClient.getAllEmployees());
 	}
 
-	@GetMapping("/products/{id}")
-	public ResponseEntity<?> getProduct(@PathVariable("id") int id){
-		Product product = productServiceClient.getProduct(id);
-		return ResponseEntity.ok(product);
+	@GetMapping("/employees/{empid}")
+	public ResponseEntity<?> getEmployee(@PathVariable("empid") int empid){
+		Employee employee = employeeServiceClient.getEmployee(empid);
+		return ResponseEntity.ok(employee);
 	}
 }
